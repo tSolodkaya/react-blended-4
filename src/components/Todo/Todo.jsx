@@ -1,7 +1,7 @@
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { Text } from 'components';
 import { DeleteButton, TodoWrapper } from './Todo.styled';
-import { deleteTodo } from 'redux/todosSlice';
+import { deleteTodo } from 'redux/operations';
 import { useDispatch } from 'react-redux';
 
 export const Todo = ({ text, counter, id }) => {
