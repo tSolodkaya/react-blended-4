@@ -1,23 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { addTodo, deleteTodo, fetchTodos } from './operations';
 
 const todosSlice = createSlice({
   // Имя слайса
   name: 'todos',
   // Начальное состояние редюсера слайса
   initialState: { items: [] },
-  // Объект редюсеров
-  reducers: {
-    addTodo(state, action) {
+
+  extraReducers: {
+    [fetchTodos.fulfilled](state, action) {
+      state.items = action.payload;
+    },
+    [addTodo.fulfilled](state, action) {
       state.items.push(action.payload);
     },
-    deleteTodo(state, action) {
-      state.items = state.items.filter(todo => todo.id !== action.payload);
+    [deleteTodo.fulfilled](state, action) {
+      state.items = state.items.filter(item => item.id !== action.payload.id);
     },
-    toggleCompleted(state, action) {},
   },
 });
 
-// Генераторы экшенов
-export const { addTodo, deleteTodo, toggleCompleted } = todosSlice.actions;
-// Редюсер слайса
 export const todosReducer = todosSlice.reducer;
