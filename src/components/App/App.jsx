@@ -10,6 +10,7 @@ import {
   Section,
   Text,
   Todo,
+  TodoList,
 } from 'components';
 
 export const App = () => {
@@ -47,8 +48,8 @@ export const App = () => {
           {todos.length === 0 && (
             <Text textAlign="center">There are no any todos ... </Text>
           )}
-
-          <Grid>
+          <TodoList />
+          {/* <Grid>
             {todos.length > 0 &&
               todos.map((todo, index) => (
                 <GridItem key={todo.id}>
@@ -60,7 +61,7 @@ export const App = () => {
                   />
                 </GridItem>
               ))}
-          </Grid>
+          </Grid> */}
         </Container>
       </Section>
     </>
